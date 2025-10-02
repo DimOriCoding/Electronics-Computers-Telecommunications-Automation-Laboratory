@@ -17,6 +17,7 @@ clear all
 
 t1=[-4*pi:0.01:4*pi];
 
+%x=sinc(t1)
 
 x=sinct(t1);
 
@@ -277,7 +278,7 @@ ylabel('|Y(j*2*pi*f)|'), xlabel('f'), legend('|Y(j*2*pi*f)|'), title('|Y(j*2*pi*
 %για να προκύψει το αναμενόμενο αποτέλεσμα που βλέπουμε στα αντίστοιχα γραφήματα.
 
 function y = sinct(x)%Εδώ δημιουργήσαμε τη βοηθητική συνάρτηση για τον προσεγγιστικό υπολογισμό της
-%τsinc(x).
+%sinc(x).
     % Handle the x = 0 case explicitly to avoid division by zero
     y = ones(size(x));
     idx = x ~= 0;
