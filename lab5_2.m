@@ -36,7 +36,9 @@ df=0.25;
 t=[-t0:ts:t0];
 
 
-m=sinc(100*t);
+%m=sinc(100*t);
+
+m=sinct(t);
 
 c=cos(2*pi*fc*t);
 %Ύστερα αφού ορίσαμε τα συνεχή σήματα πληροφορίας m(t) και φορέα c(t), θα
@@ -445,4 +447,12 @@ m = [m,zeros(1,n-n2)];
 
 df = fs/n;
 
+end
+
+function y = sinct(x)%Εδώ δημιουργήσαμε τη βοηθητική συνάρτηση για τον προσεγγιστικό υπολογισμό της
+%sinc(x).
+    % Handle the x = 0 case explicitly to avoid division by zero
+    y = ones(size(x));
+    idx = x ~= 0;
+    y(idx) = sin(pi * x(idx)) ./ (pi * x(idx));
 end
